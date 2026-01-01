@@ -1,11 +1,9 @@
-import React from 'react'
+import { useProducts } from "../context/ProductContext";
 
 function ProductsPage() {
-  return (
-    <div>
-      
-    </div>
-  )
+  const products = useProducts();
+  console.log(products)
+  return <div></div>;
 }
 
-export default ProductsPage
+export default ProductsPage;
