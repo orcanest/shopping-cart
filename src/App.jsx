@@ -13,7 +13,6 @@ function App() {
         <Route path="/products/:id" element={<DetailsPage />} />
         <Route path="/checkout" element={<CheckOutPage />} />
         <Route path="/*" element={<PageNotFound />} />
-
       </Routes>
     </div>
   );
