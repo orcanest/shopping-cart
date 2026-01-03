@@ -46,7 +46,7 @@ const getInitialQuery = (searchParams) => {
   const search = searchParams.get("search");
   if (category) query.category = category;
   if (search) query.search = search;
-  setQuery(query);
+  return query;
 };
 
 export {
