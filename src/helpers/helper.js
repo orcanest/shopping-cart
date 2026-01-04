@@ -52,7 +52,10 @@ const getInitialQuery = (searchParams) => {
 // For totaling the number of products in the shopping cart
 const sumProducts = (products) => {
   // item quantity
-  const itemsCounter = products.reduce((counter, product) => counter + product.quantity, 0);
+  const itemsCounter = products.reduce(
+    (counter, product) => counter + product.quantity,
+    0
+  );
 
   // total price
   const total = products
@@ -62,6 +65,16 @@ const sumProducts = (products) => {
   return { itemsCounter, total };
 };
 
+// Product Quantity in Card
+const productQuantity = (state, id) => {
+  const index = state.selectedItems.findIndex((item) => item.id === id);
+  if (index === -1) {
+    return 0;
+  } else {
+    return state.selectedItems[index].quantity;
+  }
+};
+
 export {
   shortenText,
   searchProducts,
@@ -69,4 +82,5 @@ export {
   createQueryObject,
   getInitialQuery,
   sumProducts,
+  productQuantity,
 };
