@@ -49,10 +49,24 @@ const getInitialQuery = (searchParams) => {
   return query;
 };
 
+// For totaling the number of products in the shopping cart
+const sumProducts = (products) => {
+  // item quantity
+  const itemsCounter = products.reduce((counter, product) => counter + product.quantity, 0);
+
+  // total price
+  const total = products
+    .reduce((total, cur) => total + cur.price * cur.quantity, 0)
+    .toFixed(2);
+
+  return { itemsCounter, total };
+};
+
 export {
   shortenText,
   searchProducts,
   filterProducts,
   createQueryObject,
   getInitialQuery,
+  sumProducts,
 };
